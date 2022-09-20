@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, useLocation } from "react-router-dom";
+import styled from "styled-components";
+import Navbar from "./components/Navbar/Navbar";
+import Wrapper from "./components/Wrapper/Wrapper";
+import { useTheme } from "./hooks/useTheme";
+import HomePage from "./pages/HomePage";
+import JobPage from "./pages/JobPage";
+
+const Container = styled.div`
+  min-height: 100vh;
+  width: 100vw;
+  background-color: ${({ theme }) => theme.body.bg};
+  transition: 1s background-color ease;
+`;
 
 function App() {
+  const [theme, setTheme] = useTheme();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper theme={theme}>
+      <Container>
+        <Navbar theme={theme} setTheme={setTheme} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/:id" element={<JobPage />} />
+        </Routes>
+      </Container>
+    </Wrapper>
   );
 }
 
