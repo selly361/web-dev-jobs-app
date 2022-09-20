@@ -1,3 +1,5 @@
+import { AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Navbar from "./components/Navbar/Navbar";
@@ -7,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import JobPage from "./pages/JobPage";
 
 const Container = styled.div`
+  height: max-content;
   min-height: 100vh;
   width: 100vw;
   background-color: ${({ theme }) => theme.body.bg};
@@ -15,15 +18,20 @@ const Container = styled.div`
 
 function App() {
   const [theme, setTheme] = useTheme();
+  const Location = useLocation()
+    
+
   return (
     <Wrapper theme={theme}>
-      <Container>
-        <Navbar theme={theme} setTheme={setTheme} />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/:id" element={<JobPage />} />
-        </Routes>
-      </Container>
+      <AnimatePresence mode="wait">
+        <Container>
+          <Navbar theme={theme} setTheme={setTheme} />
+          <Routes location={Location} key={Location.pathname}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/:id" element={<JobPage />} />
+          </Routes>
+        </Container>
+      </AnimatePresence>
     </Wrapper>
   );
 }

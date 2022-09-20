@@ -102,11 +102,9 @@ const CheckBox = styled.input`
 
 const SearchBar = () => {
   const {
-    setFilteredDevJobs,
     filter,
     setFilter,
     handleFilter,
-    filteredDevJobs,
   } = useContext(JobsContextProvider);
 
   return (
@@ -114,6 +112,7 @@ const SearchBar = () => {
       <InputContainer>
         <SearchIcon />
         <Input
+          name="title"
           value={filter?.title}
           onChange={(e) =>
             setFilter((prev) => ({ ...prev, title: e.target.value }))
@@ -124,6 +123,7 @@ const SearchBar = () => {
       <InputContainer>
         <LocatonIcon />
         <Input
+          name="location"
           onChange={(e) =>
             setFilter((prev) => ({ ...prev, location: e.target.value }))
           }
@@ -133,6 +133,7 @@ const SearchBar = () => {
       </InputContainer>
       <InputContainer>
         <CheckBox
+          name="checkbox"
           type="checkbox"
           value={filter?.fullTime}
           onChange={(e) =>

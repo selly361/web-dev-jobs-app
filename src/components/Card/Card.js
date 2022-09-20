@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const StyledCard = styled.div`
+const StyledCard = styled(motion.div)`
   width: 300px;
   height: 250px;
   background-color: ${({ theme }) => theme.element.bg};
@@ -26,7 +27,8 @@ const CompanyInfoWrap = styled.div`
 
   div:nth-child(1) {
     display: flex;
-    gap: 0.4rem;
+    gap: 0.6rem;
+    align-items: center;
   }
 `;
 
@@ -41,59 +43,22 @@ const LogoWrapper = styled.div`
   position: absolute;
   top: -25px;
 
-  &.Scoot {
-    background-color: hsl(36, 87%, 49%);
-  }
 
-  &.Blogr {
-    background-color: hsl(12, 79%, 52%);
-  }
-
-  &.Vector {
-    background-color: hsl(235, 10%, 23%);
-  }
-
-  &.OfficeLite {
-    background-color: hsl(227, 62%, 48%);
-  }
-
-  &.Pod {
-    background-color: hsl(216, 46%, 14%);
-  }
-
-  &.Creative {
-    background-color: hsl(295, 55%, 21%);
-  }
-
-  &.Pomodoro {
-    background-color: hsl(254, 71%, 45%);
-  }
-
-  &.Maker {
-    background-color: hsl(218, 58%, 31%);
-  }
-
-  &.Coffeeroasters {
-    background-color: hsl(29, 60%, 87%);
-  }
-
-  &.Mastercraft {
-    background-color: hsl(0, 0%, 12%);
-  }
-
-  &.Crowdfund {
-    background-color: hsl(157, 57%, 50%);
-  }
-
-  &.Typemaster {
-    background-color: hsl(22, 89%, 52%);
-  }
 `;
 
 const StyledLogo = styled.img``;
 
 const StyledPostedAt = styled.p`
   color: #6e8098;
+  position: relative;
+  display: grid;
+`;
+
+const Dot = styled.div`
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background-color: #6e8098;
 `;
 
 const StyledContract = styled.p`
@@ -116,6 +81,22 @@ const StyledLocation = styled.h5`
   color: #5964e0;
 `;
 
+const childrenVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.6,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+  },
+
+  exit: {
+    opacity: 0,
+    scale: 0.6,
+  },
+};
+
 const Card = ({
   contract,
   position,
@@ -124,16 +105,22 @@ const Card = ({
   logoBackground,
   logo,
   company,
-  id
+  id,
 }) => {
   return (
-    <StyledCard>
-      <LogoWrapper className={company.trim()}>
+    <StyledCard
+      variants={childrenVariants}
+      initial="hidden"
+      animate="visible"
+      transition={{ type: "tween", duration: 0.5 }}
+    >
+      <LogoWrapper className={company.split(" ").join("")}>
         <StyledLogo src={logo} />
       </LogoWrapper>
       <CompanyInfoWrap>
         <div>
           <StyledPostedAt>{postedAt}</StyledPostedAt>
+          <Dot />
           <StyledContract>{contract}</StyledContract>
         </div>
         <Link to={`/${id}`}>

@@ -1,14 +1,24 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import { MoonIcon, SunIcon } from "../../assets";
-import { StyledHeader, ToggleDot, Toggler, Navigation, ThemeToggleWrapper, Logo } from "./styles";
+import {
+  StyledHeader,
+  ToggleDot,
+  Toggler,
+  Navigation,
+  ThemeToggleWrapper,
+  Logo,
+} from "./styles";
 
 
 
 const Navbar = ({ theme, setTheme }) => {
+
   return (
     <StyledHeader>
       <Navigation>
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         <ThemeToggleWrapper>
           <SunIcon />
           <Toggler
