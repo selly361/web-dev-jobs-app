@@ -114,7 +114,7 @@ const Card = ({
       animate="visible"
       transition={{ type: "tween", duration: 0.5 }}
     >
-      <LogoWrapper className={company.split(" ").join("")}>
+      <LogoWrapper className={company.split(" ").length > 1 ? company.split(" ").join("") : company}>
         <StyledLogo src={logo} />
       </LogoWrapper>
       <CompanyInfoWrap>

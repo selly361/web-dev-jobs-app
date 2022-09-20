@@ -75,7 +75,7 @@ const JobPage = () => {
       exit="exit"
     >
       <JobHeader>
-        <CompanyLogoContainer className={company.split(" ").join("")}>
+        <CompanyLogoContainer className={company.split(" ").length > 1 ? company.split(" ").join("") : company}>
           <img src={logo} />
         </CompanyLogoContainer>
         <div>
