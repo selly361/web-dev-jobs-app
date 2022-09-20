@@ -35,7 +35,6 @@ const CompanyInfoWrap = styled.div`
 const LogoWrapper = styled.div`
   height: 50px;
   width: 50px;
-  background-color: black;
   border-radius: 10px;
   display: flex;
   align-items: center;
