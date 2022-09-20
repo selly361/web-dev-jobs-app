@@ -92,6 +92,11 @@ export const GlobalStyle = createGlobalStyle`
     background-color: hsl(22, 89%, 52%);
   }
 
+
+  p, li {
+    color: #6e8098;
+  }
+
 `;
 
 export const pageAnimation = {

@@ -47,20 +47,20 @@ const LogoWrapper = styled.div`
 
 const StyledLogo = styled.img``;
 
-const StyledPostedAt = styled.p`
+export const StyledPostedAt = styled.p`
   color: #6e8098;
   position: relative;
   display: grid;
 `;
 
-const Dot = styled.div`
+export const Dot = styled.div`
   height: 3px;
   width: 3px;
   border-radius: 50%;
   background-color: #6e8098;
 `;
 
-const StyledContract = styled.p`
+export const StyledContract = styled.p`
   color: #6e8098;
 `;
 
@@ -76,7 +76,7 @@ const StyledPosition = styled.h4`
   }
 `;
 
-const StyledLocation = styled.h5`
+export const StyledLocation = styled.h5`
   color: #5964e0;
 `;
 

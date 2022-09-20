@@ -45,6 +45,12 @@ export const Navigation = styled.nav`
   width: 80vw;
 
 
+  @media (max-width: 600px){
+    width: 90vw;
+    margin-bottom: 1rem;
+  }
+
+
 `;
 
 export const Toggler = styled.button`

@@ -77,7 +77,7 @@ const Input = styled.input`
   }
 `;
 
-const NormalButton = styled.button`
+export const NormalButton = styled.button`
   background-color: #5964e0;
   color: white;
   font-size: 1.3rem;

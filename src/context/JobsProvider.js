@@ -41,9 +41,7 @@ const JobsProvider = ({ children }) => {
       }
 
       if (title) {
-        copy = copy.filter((job) =>
-          job.position.toLowerCase().includes(title.toLowerCase())
-        );
+        copy = copy.filter((job) => job.position.toLowerCase().includes(title.toLowerCase()) || job.company.toLowerCase().includes(title.toLowerCase()))
       }
       setFilteredDevJobs(copy);
       setHideButton(true);
