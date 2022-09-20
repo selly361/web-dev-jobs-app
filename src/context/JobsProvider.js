@@ -10,7 +10,11 @@ const JobsProvider = ({ children }) => {
 
   const [hideButton, setHideButton] = useState(false);
 
-  const [filter, setFilter] = useState({});
+  const [filter, setFilter] = useState({
+    title: "",
+    location: "",
+    fullTime: false
+  });
 
 
   
@@ -43,17 +47,18 @@ const JobsProvider = ({ children }) => {
       }
       setFilteredDevJobs(copy);
       setHideButton(true);
-      setFilter({})
-    } else {
+
+    } else if(!title && !location && !fullTime) {
       copy = devJobs;
       setFilteredDevJobs(copy.slice(6));
       setHideButton(false);
       setFilter({})
     }
 
-    setFilter({})
 
   };
+
+  
 
   const findJob = (id) => {
     let copy = devJobs;

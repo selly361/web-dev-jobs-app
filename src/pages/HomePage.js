@@ -15,11 +15,16 @@ const Container = styled(motion.main)`
   padding-bottom: 2rem;
 
   @media (max-width: 1233px) {
-    width: 65vw;
+    width: 800px;
   }
 
-  @media (max-width: 983px) {
-    width: 40vw;
+
+  @media (max-width: 100px){
+
+  }
+
+  @media (max-width: 860px) {
+    width: 90vw;
   }
 `;
 

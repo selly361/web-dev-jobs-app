@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { JobsContextProvider } from "../context/JobsProvider";
@@ -61,11 +61,19 @@ const CompanySiteButton = styled.button`
   }
 `;
 
+const Title = styled.h2``
+
 const JobPage = () => {
   const { id } = useParams();
-  const { findJob } = useContext(JobsContextProvider);
+  const { findJob, setFilter, devJobs, setFilteredDevJobs, setHideButton } = useContext(JobsContextProvider);
 
   const { company, contract, logo, website } = findJob(id);
+
+  useEffect(() => {
+    setFilter({})
+    setFilteredDevJobs(devJobs.slice(6))
+    setHideButton(false)
+  }, [])
 
   return (
     <Container

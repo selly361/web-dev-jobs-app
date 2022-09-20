@@ -15,7 +15,7 @@ const Container = styled.div`
     grid-template-columns: auto auto;
   }
 
-  @media (max-width: 983px) {
+  @media (max-width: 679px) {
     grid-template-columns: auto;
     place-content: center;
   }

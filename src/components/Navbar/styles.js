@@ -6,31 +6,26 @@ import { LogoIcon } from "../../assets";
 
 export const StyledHeader = styled.header`
   width: 100vw;
-  height: 28vh;
+  height: 25vh;
   background: url(${HeaderBg}) no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 1233px) {
+  @media (max-width: 700px) {
     background: url(${TabHeaderBg}) no-repeat;
-    width: 100vw;
-    margin: auto;
-    background-size: 80vw;
+    background-size: cover;
     background-position: center;
-
   }
 
-  @media (max-width: 983px) {
+  @media (max-width: 500px) {
     background: url(${MobHeaderBg}) no-repeat;
-    background-position: center;
-    background-size: 60vw;
-    background-position: center;
-
-}
+    background-size: contain;
+    background-size: cover;
+    
+  }
 `;
-
 
 // width: 80vw;
 // min-height: 90vh;
@@ -43,21 +38,13 @@ export const StyledHeader = styled.header`
 //   width: 65vw;
 // }
 
-
-
 export const Navigation = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 80vw;
 
-  @media (max-width: 1233px){
-    width: 65vw;
-  }
 
-  @media (max-width: 983px) {
-  width: 40vw;
-}
 `;
 
 export const Toggler = styled.button`
@@ -76,12 +63,10 @@ export const Toggler = styled.button`
 `;
 
 export const Logo = styled(LogoIcon)`
-
- @media (max-width: 983px) {
-   transform: scale(0.8);
-}
-
-`
+  @media (max-width: 983px) {
+    transform: scale(0.8);
+  }
+`;
 
 export const ToggleDot = styled.div`
   width: 15px;
