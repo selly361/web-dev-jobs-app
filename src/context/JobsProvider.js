@@ -5,7 +5,7 @@ export const JobsContextProvider = createContext({});
 
 const JobsProvider = ({ children }) => {
   const [devJobs, setDevJobs] = useState(jobs);
-  const [filteredDevJobs, setFilteredDevJobs] = useState(devJobs.slice(6));
+  const [filteredDevJobs, setFilteredDevJobs] = useState(devJobs.slice(0, 6));
 
 
   const [hideButton, setHideButton] = useState(false);
@@ -20,7 +20,7 @@ const JobsProvider = ({ children }) => {
   
 
   const handleLoadMore = () => {
-    setFilteredDevJobs(jobs);
+    setFilteredDevJobs(devJobs);
     setHideButton(true);
   };
 
